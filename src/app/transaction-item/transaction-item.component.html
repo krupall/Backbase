@@ -2,5 +2,5 @@
     <div class="header p-2">
         <i class="fa fa-list-ul" aria-hidden="true"></i> Transection <b>List</b>
     </div>
-    <app-filter [filterdata]="data"></app-filter>
+    <app-filter [filterdata]="data" (inputChange)='filterData($event)'></app-filter>
 </div>

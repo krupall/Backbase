@@ -2,7 +2,7 @@
   <div class="form-group transectionFilter col-lg-7">
     <span class="currencySymbol">
       <i class="fa fa-search" aria-hidden="true"></i>
-    </span><input type="text" class="form-control " id="transactions" aria-describedby="filterTransactions"
+    </span><input type="search" class="form-control " id="transactions"  (input)="onInputChange($event.target)" aria-describedby="filterTransactions"
       placeholder="filter transactions">
   </div>
   <div class="dataItems" *ngFor="let transection of trasectionValue">
