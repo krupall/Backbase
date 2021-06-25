@@ -42,7 +42,7 @@ export class TransactionItemComponent implements OnInit {
     let filterData: { date: any; merchantName: string; amount: number; type: string; currency: any }[] = [];
     value.data.filter((element: any) => {
       filterData.push({
-        date: element.dates.valueDate,
+        date: this.getDate(element.dates.valueDate),
         merchantName: element.merchant.name,
         amount: this.getAmount(element.transaction),
         type: element.transaction.type,
@@ -54,6 +54,13 @@ export class TransactionItemComponent implements OnInit {
     }
   }
 
+  getDate(value:number){
+    let date = new Date(value);
+    let dateString = date.toString()
+    let spliceDate = dateString.split(' ');
+    return spliceDate[1]+'. ' +spliceDate[2];
+  }
+  
   getAmount(value: any) {
     if (value.creditDebitIndicator === 'CRDT') {
       return value.amountCurrency.amount;

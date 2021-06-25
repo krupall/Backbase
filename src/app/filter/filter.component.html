@@ -10,11 +10,11 @@
       <span class="col-lg-2 date">
         {{transection.date}}
       </span>
-      <span class="transectionDetails col-lg-8">
-        <h5>{{transection.merchantName}}</h5>
-        <h6>{{transection.type}}</h6>
+      <span class="transectionDetails col-lg-8 col-sm-8 col-xs-8">
+        <label class="merChangeName">{{transection.merchantName}}</label><br>
+        <label class="transectionType">{{transection.type}}</label>
       </span>
-      <span class="transectionAmount pull-left" [ngClass]="transection.amount > 0  ? 'text-green' : 'text-red'">
+      <span class="transectionAmount col-lg-2 col-sm-3 col-xs-3" [ngClass]="transection.amount > 0  ? 'text-green' : 'text-red'">
         <label class="currencySymbol">{{transection.currency}} &nbsp; </label>
         <label class="value"> {{transection.amount}}</label>
       </span>

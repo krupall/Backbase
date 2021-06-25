@@ -109,8 +109,12 @@ body {
         }
 
         .transectionDetails {
-          h6 {
+          .merChangeName{
+            font:  normal 1.2em 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+          .transectionType {
             color: #a09e9e;
+            font-size: 1em;
           }
         }
 
