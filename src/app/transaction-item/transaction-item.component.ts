@@ -13,10 +13,12 @@ import sampleData from '/Users/krupal.vasani/Assignment/Backbase/src/mock-data/t
 })
 
 export class TransactionItemComponent implements OnInit {
+  private mainData:any;
   records: any;
   Users: TransectionModel = sampleData;
   data: any;
   public FinalData: any | undefined;
+  filteredData: any;
 
   constructor(private transectionData: TransectioDataService
 
@@ -50,6 +52,7 @@ export class TransactionItemComponent implements OnInit {
       })
     });
     if (filterData) {
+      this.mainData = filterData;
       this.data = filterData;
     }
   }
@@ -59,6 +62,11 @@ export class TransactionItemComponent implements OnInit {
     let dateString = date.toString()
     let spliceDate = dateString.split(' ');
     return spliceDate[1]+'. ' +spliceDate[2];
+  }
+
+  filterData(event:any){
+    this.filteredData = this.mainData.filter((val:any) => val.merchantName.toLowerCase().includes(event.toLowerCase()));
+    this.data = this.filteredData;
   }
   
   getAmount(value: any) {
