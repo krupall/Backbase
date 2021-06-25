@@ -1,0 +1,81 @@
+@import './vars';
+
+body {
+  background-image: url('../assets/background.jpg');
+
+  app-transaction-item{
+    width: 66%;
+  }
+
+  .logo {
+    background-color: white;
+
+    .highlighter {
+      color:$primary-blue;
+    }
+  }
+
+  .header{
+    background-color: $primary-blue;
+    text-align: left;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+  }
+
+  .makeTransfer-header {
+    margin-top:30px;
+    .header {
+      background: url('../assets/wallet.svg') no-repeat 20px;
+      background-color: $primary-blue;
+      span{
+        margin-left: 30px;
+      }
+      svg {
+        margin-top: 3px;
+      }
+    }
+
+    form {
+      background-color: white;
+      border-radius: 0px 0px 5px 5px;
+      padding:30px 20px;
+      .amount {
+        position: relative;        
+        border-left:0px ;
+        input{
+          padding-left: 44px;
+        }
+      }
+
+      .currencySymbol {
+        position: absolute;
+        height: 34px;
+        padding: 10px 15px;
+        left: 0px;
+        line-height: 16px;
+        border-radius: 5px 0px 0px 5px;
+        background-color: #d6d5d5;
+      }
+
+      .currencySymbol input {
+        border: 0;
+      }
+    }
+  }
+
+  .transectionList{
+    margin-top: 30px;
+  }
+  
+  footer {
+    height: 100%;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    color: $primary-blue;
+  }
+}
