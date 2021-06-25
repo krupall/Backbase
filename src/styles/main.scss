@@ -3,19 +3,21 @@
 body {
   background-image: url('../assets/background.jpg');
 
-  app-transaction-item{
+  app-transaction-item {
     width: 66%;
   }
 
   .logo {
     background-color: white;
+    padding: 20px;
 
     .highlighter {
-      color:$primary-blue;
+      margin-top: 10px;
+      color: $primary-blue;
     }
   }
 
-  .header{
+  .header {
     background-color: $primary-blue;
     text-align: left;
     font-size: 18px;
@@ -24,14 +26,18 @@ body {
     color: white;
   }
 
+
   .makeTransfer-header {
-    margin-top:30px;
+    margin-top: 30px;
+
     .header {
       background: url('../assets/wallet.svg') no-repeat 20px;
       background-color: $primary-blue;
-      span{
+
+      span {
         margin-left: 30px;
       }
+
       svg {
         margin-top: 3px;
       }
@@ -40,11 +46,13 @@ body {
     form {
       background-color: white;
       border-radius: 0px 0px 5px 5px;
-      padding:30px 20px;
+      padding: 30px 20px;
+
       .amount {
-        position: relative;        
-        border-left:0px ;
-        input{
+        position: relative;
+        border-left: 0px;
+
+        input {
           padding-left: 44px;
         }
       }
@@ -65,10 +73,75 @@ body {
     }
   }
 
-  .transectionList{
+  .transectionList {
     margin-top: 30px;
+    position: relative;
+
+    form {
+      padding-top: 20px;
+      background-color: white;
+
+      span.currencySymbol {
+        position: absolute;
+        height: 34px;
+        padding: 10px 15px;
+        left: 0px;
+        line-height: 16px;
+        border-radius: 5px 0px 0px 5px;
+        background-color: #d6d5d5;
+      }
+
+      .resultData {
+        position: relative;
+        padding: 10px 0px;
+        margin-bottom: 10px;
+
+        &.text-red {
+          border-left: 5px solid red;
+        }
+
+        &.text-green {
+          border-left: 5px solid green;
+        }
+
+        .date {
+          line-height: 48px;
+        }
+
+        .transectionDetails {
+          h6 {
+            color: #a09e9e;
+          }
+        }
+
+        .transectionAmount {
+          line-height: 50px;
+
+          &.text-red {
+            label {
+              color: red;
+            }
+          }
+
+          &.text-green {
+            label {
+              color: green;
+            }
+          }
+        }
+      }
+    }
+
+    #transactions {
+      padding-left: 30px;
+    }
   }
-  
+
+  hr {
+    border: 1px solid rgb(223, 223, 223);
+    width: 100%;
+  }
+
   footer {
     height: 100%;
     font-size: 0.8rem;

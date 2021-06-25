@@ -1,9 +1,8 @@
 export interface Itransection {
-    dates: number;
-    amount: number;
-    currencyCode: string;
-    merchant: object;
-    type?: string;
-    categoryCode:string;
-    creditDebitIndicator:string;
-  }
+  date: any;
+  merchantName: string;
+  amount: number;
+  type: string;
+  currency: string;
+  never: Array<string>
+}[]

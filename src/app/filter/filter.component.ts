@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -6,7 +6,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
+  trasectionValue:any
   @Output() inputChange: EventEmitter<any> = new EventEmitter();
+  @Input() set filterdata(value: any) {
+    if (value) {
+      this.trasectionValue = value;
+    }
+  }
+  
   constructor() { }
 
   ngOnInit(): void {

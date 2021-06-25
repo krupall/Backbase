@@ -1,12 +1,24 @@
-<form class="filter-form w-50" action="#">
-    <div class="form-group">
-      <div class=" input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text"><i class="lni lni-search"></i></div>
-        </div>
-        <input (keyup)="onInputChange($event)" type="text" class="form-control" id="transactions"
-          aria-describedby="filterTransactions" placeholder="filter transactions" data-test-hook="filterInput">
-      </div>
+<form class="col-lg-12" action="#">
+  <div class="form-group transectionFilter col-lg-7">
+    <span class="currencySymbol">
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </span><input type="text" class="form-control " id="transactions" aria-describedby="filterTransactions"
+      placeholder="filter transactions">
+  </div>
+  <div class="dataItems" *ngFor="let transection of trasectionValue">
+    <div class="resultData col-lg-12" [ngClass]="transection.amount > 0  ? 'text-green' : 'text-red'">
+      <span class="col-lg-2 date">
+        {{transection.date}}
+      </span>
+      <span class="transectionDetails col-lg-8">
+        <h5>{{transection.merchantName}}</h5>
+        <h6>{{transection.type}}</h6>
+      </span>
+      <span class="transectionAmount pull-left" [ngClass]="transection.amount > 0  ? 'text-green' : 'text-red'">
+        <label class="currencySymbol">{{transection.currency}} &nbsp; </label>
+        <label class="value"> {{transection.amount}}</label>
+      </span>
     </div>
-  </form>
-  
+    <hr>
+  </div>
+</form>
