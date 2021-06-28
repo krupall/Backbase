@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class MakeTransferComponent implements OnInit {
 
   constructor() { }
-
+  amountvalue:number | undefined;
+  acccountName:string ='';
+  
   ngOnInit(): void {
   }
 
+  SendMoney(){
+    console.log('money deposited')
+  }
 }

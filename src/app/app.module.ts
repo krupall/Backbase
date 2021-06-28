@@ -8,6 +8,7 @@ import { TransactionItemComponent } from './transaction-item/transaction-item.co
 import { TransectioDataService } from './transectio-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MakeTransferComponent } from './make-transfer/make-transfer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,12 +17,14 @@ import { MakeTransferComponent } from './make-transfer/make-transfer.component';
     LogoComponent,
     FilterComponent,
     TransactionItemComponent,
-    MakeTransferComponent
+    MakeTransferComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [TransectioDataService ],
   bootstrap: [AppComponent]

@@ -33,7 +33,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/jquery.min.js",
+              "src/assets/bootstrap.min.js",
+              "src/assets/popper.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -96,7 +100,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/jquery.min.js",
+              "src/assets/bootstrap.min.js",
+              "src/assets/popper.min.js"
+            ]
           }
         },
         "lint": {
