@@ -6,10 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Backbase';
-  totalBalance: number = 0;
+  public title = 'Backbase';
+  public totalBalance: number = 0;
+  public transectionData:object = [];
 
-  sendfinalSum(event:any){
+  sendfinalSum(event:number){
     this.totalBalance = event;
+  }
+
+  pushTheTransection(event:object){
+    this.transectionData = event;
   }
 }

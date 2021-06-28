@@ -24,8 +24,8 @@
     <app-logo></app-logo>
     <div class="container">
       <div class="row">
-    <app-make-transfer [totalBalance]="totalBalance" ></app-make-transfer>
-    <app-transaction-item (finalTotal)='sendfinalSum($event)' ></app-transaction-item>
+    <app-make-transfer [totalBalance]="totalBalance" (transectionObject)='pushTheTransection($event)'></app-make-transfer>
+    <app-transaction-item (finalTotal)='sendfinalSum($event)' [getTransectionData]="transectionData" ></app-transaction-item>
     <footer></footer>
     <router-outlet></router-outlet>
   </div>
