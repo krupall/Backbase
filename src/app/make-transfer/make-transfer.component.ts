@@ -1,4 +1,3 @@
-import { TransectioDataService } from './../transectio-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,20 +9,23 @@ export class MakeTransferComponent implements OnInit {
 
   constructor() { }
   amountvalue:number | undefined;
+  totalAmount:any;
   acccountName:string ='';
   
 
   //todo - form valudation
 
-  //todo - get the total from transfer component
-  getThetotalAmount(){
-  }
 
   //todo - add the data to transfer component
   
   ngOnInit(): void {
+    this.getThetotalAmount();
   }
 
+  //todo - get the total from transfer component
+  getThetotalAmount(){
+    this.totalAmount = 4423
+  }
 
   transferTheAmount(transferForm:any){
   }

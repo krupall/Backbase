@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LogoComponent,
     FilterComponent,
     TransactionItemComponent,
-    MakeTransferComponent,
+    MakeTransferComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [TransectioDataService ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

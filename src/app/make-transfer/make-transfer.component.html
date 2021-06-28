@@ -6,7 +6,7 @@
     <div class="form-group">
       <label for="fromAccount">From Account</label>
       <input type="text" class="form-control" id="fromAccount" aria-describedby="From Account"
-      placeholder="My Personal Account: $ 5824.76" readonly>
+      placeholder='My Personal Account: ${{totalAmount}}' readonly>
     </div>
     <div class="form-group">
       <label for="toAccount">To Account</label>
@@ -19,7 +19,7 @@
       <span class="currencySymbol">€</span>
       <input required type="number" class="form-control" [(ngModel)]="amountvalue" #amountVal='ngModel'
       name="inputname" id="amount" placeholder=" specify the amount " aria-describedby="Amount">
-      <small  class="form-text text-muted"  *ngIf="amountVal.touched  && !amountVal.valid">There is not enough balance</small>
+      <small  class="form-text text-muted"  *ngIf="amountVal.touched && !amountVal.valid">There is not enough balance</small>
     </div>
     <button type="submit" data-toggle="modal" data-target="#confirmTransectionModal"
       class="btn btn-danger pull-right" [disabled]="!transferForm.valid">Submit</button>

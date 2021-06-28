@@ -1,6 +1,6 @@
 
 import { getLocaleCurrencyCode } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TransectionModel } from '../models/Transection';
 import { TransectioDataService } from '../transectio-data.service';
 
@@ -9,10 +9,12 @@ import { TransectioDataService } from '../transectio-data.service';
 @Component({
   selector: 'app-transaction-item',
   templateUrl: './transaction-item.component.html',
-  styleUrls: ['./transaction-item.component.scss']
+  styleUrls: ['./transaction-item.component.scss'],
+  providers:[TransectioDataService]
 })
 
 export class TransactionItemComponent implements OnInit {
+  @Output() totalBalance: EventEmitter<number> = new EventEmitter();
   private mainData:any;
   records: any;
   public totalAmount: number =0;
@@ -70,7 +72,7 @@ export class TransactionItemComponent implements OnInit {
       this.totalAmount +=element.amount;
     });
 
-    localStorage.setItem('totalAmount', this.totalAmount.toFixed(2));
+    this.totalBalance.emit(this.totalAmount);
   }
 
   getDate(value:number){
