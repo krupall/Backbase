@@ -3,7 +3,7 @@ import { getLocaleCurrencyCode } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TransectionModel } from '../models/Transection';
 import { TransectioDataService } from '../transectio-data.service';
-import sampleData from '/Users/krupal.vasani/Assignment/Backbase/src/mock-data/transactions.json';
+
 
 
 @Component({
@@ -15,7 +15,7 @@ import sampleData from '/Users/krupal.vasani/Assignment/Backbase/src/mock-data/t
 export class TransactionItemComponent implements OnInit {
   private mainData:any;
   records: any;
-  Users: TransectionModel = sampleData;
+  public totalAmount: number =0;
   data: any;
   public FinalData: any | undefined;
   filteredData: any;
@@ -35,11 +35,15 @@ export class TransactionItemComponent implements OnInit {
       },
       error => {
         console.log('Unable to fetch data from API ' + error);
-        this.renderData(this.Users);
+        let records = this.transectionData.getLocalData();
+        this.renderData(records);
       });
   }
 
   renderData(value: any) {
+    //sorting the data;
+    value.data.sort((a: { date: number; },b: { date: number; }) => (a.date > b.date) ? -1 : 1);
+    
     //clearning the data 
     let filterData: { date: any; merchantName: string; amount: number; type: string; currency: any }[] = [];
     value.data.filter((element: any) => {
@@ -54,7 +58,19 @@ export class TransactionItemComponent implements OnInit {
     if (filterData) {
       this.mainData = filterData;
       this.data = filterData;
+
+      this.calculateTotalAmount(this.data);
     }
+  }
+
+  public calculateTotalAmount(array:any){
+    
+    array.forEach((element:TransectionModel) => {
+      debugger
+      this.totalAmount +=element.amount;
+    });
+
+    localStorage.setItem('totalAmount', this.totalAmount.toFixed(2));
   }
 
   getDate(value:number){
