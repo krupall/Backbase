@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-make-transfer',
@@ -11,7 +11,10 @@ export class MakeTransferComponent implements OnInit {
   amountvalue:number | undefined;
   totalAmount:any;
   acccountName:string ='';
-  
+
+  @Input() set totalBalance(value:any){
+    this.totalAmount = value
+  }
 
   //todo - form valudation
 
@@ -19,13 +22,11 @@ export class MakeTransferComponent implements OnInit {
   //todo - add the data to transfer component
   
   ngOnInit(): void {
-    this.getThetotalAmount();
+    
   }
 
   //todo - get the total from transfer component
-  getThetotalAmount(){
-    this.totalAmount = 4423
-  }
+  
 
   transferTheAmount(transferForm:any){
   }

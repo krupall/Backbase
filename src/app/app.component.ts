@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Backbase';
+  totalBalance: number = 0;
+
+  sendfinalSum(event:any){
+    this.totalBalance = event;
+  }
 }

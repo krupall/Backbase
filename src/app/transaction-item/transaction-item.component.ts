@@ -14,7 +14,7 @@ import { TransectioDataService } from '../transectio-data.service';
 })
 
 export class TransactionItemComponent implements OnInit {
-  @Output() totalBalance: EventEmitter<number> = new EventEmitter();
+  @Output() finalTotal: EventEmitter<any> = new EventEmitter();
   private mainData:any;
   records: any;
   public totalAmount: number =0;
@@ -68,11 +68,14 @@ export class TransactionItemComponent implements OnInit {
   public calculateTotalAmount(array:any){
     
     array.forEach((element:TransectionModel) => {
-      debugger
       this.totalAmount +=element.amount;
     });
 
-    this.totalBalance.emit(this.totalAmount);
+    this.sendFinalTotal(this.totalAmount);
+  }
+
+  sendFinalTotal(event: any): void {
+    this.finalTotal.emit(event.toFixed(2));
   }
 
   getDate(value:number){
