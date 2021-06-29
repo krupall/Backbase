@@ -2,27 +2,35 @@
   <div class="header">
     <span> <b>Make</b> Transfer</span>
   </div>
-  <form class="col-lg-12" #transferForm="ngForm" (ngSubmit)="transferTheAmount(transferForm)" >
+  <form class="col-lg-12" #transferForm="ngForm" [formGroup]="form"  (ngSubmit)="transferTheAmount(transferForm)">
     <div class="form-group">
       <label for="fromAccount">From Account</label>
       <input type="text" class="form-control" id="fromAccount" aria-describedby="From Account"
-      placeholder='My Personal Account: ${{totalAmount}}' readonly>
+        placeholder='My Personal Account: ${{totalAmount}}' readonly>
     </div>
     <div class="form-group">
       <label for="toAccount">To Account</label>
-      <input required type="text" class="form-control"  id="toAccount" [(ngModel)]='acccountName' #accountName='ngModel' required
-        aria-describedby="To Acccount" name='inputAccountName'  placeholder="type an account name">
-      <small class="form-text text-muted " *ngIf="accountName.touched  &&!accountName.valid">This field is required</small>
+      <input required type="text" class="form-control"  [(ngModel)]='acccountName' formControlName='toAccount'
+     aria-describedby="To Acccount" name='inputAccountName' placeholder="type an account name">
+      <!-- Error handling for the Amount Name field   -->
+        <div *ngIf="f.toAccount.touched && f.toAccount.invalid" class="alert-danger">
+          <div *ngIf="f.toAccount.errors?.required">This field is required</div>
+      </div>
     </div>
     <div class="form-group amount">
       <label for="amount">Amount</label><br>
       <span class="currencySymbol">€</span>
-      <input required type="number" class="form-control" [(ngModel)]="amountvalue" #amountVal='ngModel'
-      name="inputname" id="amount" placeholder=" specify the amount " aria-describedby="Amount">
-      <small  class="form-text text-muted"  *ngIf="amountVal.touched && !amountVal.valid">There is not enough balance</small>
+      <input  type="number" class="form-control" [(ngModel)]="amountvalue" formControlName="amount"
+         placeholder=" specify the amount " aria-describedby="Amount">
+        <div *ngIf="f.amount.touched && f.amount.invalid" class="alert-danger">
+          <div *ngIf="f.amount.errors?.required">This field is required.</div>
+          <div *ngIf="f.amount.errors?.min">Negative valies are not Allowed</div>
+          <div *ngIf="f.amount.errors?.max">Amount should not be greater than  {{this.maxValue}}</div>
+      </div>
+
     </div>
-    <button type="submit" data-toggle="modal" data-target="#confirmTransectionModal"
-      class="btn btn-danger pull-right" [disabled]="!transferForm.valid">Submit</button>
+    <button type="submit" data-toggle="modal" data-target="#confirmTransectionModal" class="btn btn-danger pull-right" [disabled]= "form.invalid"
+      >Submit</button>
   </form>
 
   <!-- transection confirmation Modal -->

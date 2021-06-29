@@ -48,6 +48,9 @@ body {
       border-radius: 0px 0px 5px 5px;
       padding: 30px 20px;
 
+      .alert-danger{
+        background-color:white;
+      }
       .amount {
         position: relative;
         border-left: 0px;
